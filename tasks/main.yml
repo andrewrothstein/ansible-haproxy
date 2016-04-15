@@ -1,0 +1,38 @@
+---
+# tasks file for haproxy
+- name: download...
+  get_url: >-
+    url={{haproxy_url}}
+    dest=/tmp/{{haproxy_tgz}}
+    owner=root
+    group=root
+    mode=0644
+
+- name: unarchive...
+  unarchive: >-
+    copy=no
+    src=/tmp/{{haproxy_tgz}}
+    dest=/opt
+    owner=root
+    group=root
+    
+- name: linking /opt/haproxy...
+  file: >-
+    src=/opt/{{haproxy_name}}
+    dest=/opt/haproxy
+    state=link
+
+- name: building...
+  command: >-
+    make -j4 {{haproxy_buildargs}}
+  args:
+    chdir: /opt/haproxy
+    creates: /opt/haproxy/haproxy
+
+- name: installing...
+  command: >-
+    make -j4 install {{haproxy_installargs}}
+  args:
+    chdir: /opt/haproxy
+    creates: /usr/local/sbin/haproxy
+

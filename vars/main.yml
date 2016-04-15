@@ -1,0 +1,5 @@
+---
+# vars file for haproxy
+haproxy_name : 'haproxy-{{haproxy_ver}}'
+haproxy_tgz : '{{haproxy_name}}.tar.gz'
+haproxy_url : '{{haproxy_mirror}}/{{haproxy_major_ver}}/src/{{haproxy_tgz}}'
