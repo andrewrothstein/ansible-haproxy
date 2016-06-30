@@ -1,0 +1,4 @@
+---
+- src: andrewrothstein.unarchive-deps
+- src: andrewrothstein.lua
+  version: v1.0.1

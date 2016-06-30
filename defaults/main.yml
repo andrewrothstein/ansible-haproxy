@@ -1,7 +1,7 @@
 ---
 # defaults file for haproxy
 haproxy_major_ver : '1.6'
-haproxy_minor_ver : '4'
+haproxy_minor_ver : '6'
 haproxy_ver : '{{haproxy_major_ver}}.{{haproxy_minor_ver}}'
 haproxy_mirror : 'http://www.haproxy.org/download'
 haproxy_buildargs: >-
