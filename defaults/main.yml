@@ -1,9 +1,10 @@
 ---
 # defaults file for haproxy
 haproxy_major_ver : '1.6'
-haproxy_minor_ver : '6'
+haproxy_minor_ver : '9'
 haproxy_ver : '{{haproxy_major_ver}}.{{haproxy_minor_ver}}'
 haproxy_mirror : 'http://www.haproxy.org/download'
+haproxy_download_timeout_seconds: 600
 haproxy_buildargs: >-
   TARGET=custom
   CPU=native

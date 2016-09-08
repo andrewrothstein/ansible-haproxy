@@ -1,28 +1,33 @@
 ---
 # tasks file for haproxy
 - name: download...
+  become: yes
+  become_user: root
   get_url: >-
     url={{haproxy_url}}
     dest=/tmp/{{haproxy_tgz}}
-    owner=root
-    group=root
+    timeout={{haproxy_download_timeout_seconds}}
     mode=0644
 
 - name: unarchive...
+  become: yes
+  become_user: root
   unarchive: >-
     copy=no
     src=/tmp/{{haproxy_tgz}}
     dest=/opt
-    owner=root
-    group=root
     
 - name: linking /opt/haproxy...
+  become: yes
+  become_user: root 
   file: >-
     src=/opt/{{haproxy_name}}
     dest=/opt/haproxy
     state=link
 
 - name: building...
+  become: yes
+  become_user: root
   command: >-
     make -j4 {{haproxy_buildargs}}
   args:
@@ -30,6 +35,8 @@
     creates: /opt/haproxy/haproxy
 
 - name: installing...
+  become: yes
+  become_user: root
   command: >-
     make -j4 install {{haproxy_installargs}}
   args:
