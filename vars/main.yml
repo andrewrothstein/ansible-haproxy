@@ -1,5 +1,24 @@
 ---
 # vars file for haproxy
+haproxy_ver : '{{haproxy_major_ver}}.{{haproxy_minor_ver}}'
 haproxy_name : 'haproxy-{{haproxy_ver}}'
 haproxy_tgz : '{{haproxy_name}}.tar.gz'
 haproxy_url : '{{haproxy_mirror}}/{{haproxy_major_ver}}/src/{{haproxy_tgz}}'
+
+haproxy_buildargs: >-
+  TARGET=custom
+  CPU=native
+  USE_PCRE=1
+  USE_PCRE_JIT=1
+  USE_LIBCRYPT=1
+  USE_LINUX_SPLICE=1
+  USE_LINUX_TPROXY=1
+  USE_OPENSSL=1
+  USE_DL=1
+  USE_LUA=1
+  LUA_LIB=/usr/local/lib/
+  LUA_INC=/usr/local/include/
+  LDFLAGS={{haproxy_build_ldflags}}
+
+haproxy_installargs: >-
+  LDFLAGS={{haproxy_install_ldflags}}
