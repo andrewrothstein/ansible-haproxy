@@ -15,14 +15,18 @@ galaxy_info:
         - 24
     - name: Ubuntu
       versions:
+        - trusty
         - xenial
   galaxy_tags:
-    - development
+    - lua
+    - haproxy
+    - reverseproxy
+    - loadbalancer
 
 dependencies:
   - role: andrewrothstein.unarchive-deps
     version: v1.0.5
   - role: andrewrothstein.lua
-    version: v1.0.2
+    version: v1.0.3
   
 
