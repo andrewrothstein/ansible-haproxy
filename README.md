@@ -1,7 +1,7 @@
 andrewrothstein.haproxy
 =======================
 
-A role to build/install haproxy
+A role to build/install [haproxy](http://www.haproxy.org/)
 
 Requirements
 ------------
