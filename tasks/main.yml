@@ -3,27 +3,28 @@
 - name: download...
   become: yes
   become_user: root
-  get_url: >-
-    url={{haproxy_url}}
-    dest=/tmp/{{haproxy_tgz}}
-    timeout={{haproxy_download_timeout_seconds}}
-    mode=0644
+  get_url:
+    url: '{{haproxy_url}}'
+    dest: /tmp/{{haproxy_tgz}}
+    timeout: '{{haproxy_download_timeout_seconds}}'
+    mode: 0644
 
 - name: unarchive...
   become: yes
   become_user: root
-  unarchive: >-
-    copy=no
-    src=/tmp/{{haproxy_tgz}}
-    dest=/opt
+  unarchive:
+    remote_src: yes
+    src: /tmp/{{haproxy_tgz}}
+    dest: '{{haproxy_parent_src_dir}}'
+    creates: '{{haproxy_src_dir}}'
     
 - name: linking /opt/haproxy...
   become: yes
   become_user: root 
-  file: >-
-    src=/opt/{{haproxy_name}}
-    dest=/opt/haproxy
-    state=link
+  file:
+    src: '{{haproxy_src_dir}}'
+    dest: '{{haproxy_src_link_dir}}'
+    state: link
 
 - name: building...
   become: yes
@@ -31,8 +32,8 @@
   command: >-
     make -j4 {{haproxy_buildargs}}
   args:
-    chdir: /opt/haproxy
-    creates: /opt/haproxy/haproxy
+    chdir: '{{haproxy_src_link_dir}}'
+    creates: '{{haproxy_src_link_dir}}/haproxy'
 
 - name: installing...
   become: yes
@@ -40,6 +41,6 @@
   command: >-
     make -j4 install {{haproxy_installargs}}
   args:
-    chdir: /opt/haproxy
+    chdir: '{{haproxy_src_link_dir}}'
     creates: /usr/local/sbin/haproxy
 

@@ -1,5 +1,6 @@
 andrewrothstein.haproxy
 =======================
+[![Build Status](https://travis-ci.org/andrewrothstein/ansible-haproxy.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-haproxy)
 
 A role to build/install [haproxy](http://www.haproxy.org/)
 

@@ -5,6 +5,9 @@ haproxy_name : 'haproxy-{{haproxy_ver}}'
 haproxy_tgz : '{{haproxy_name}}.tar.gz'
 haproxy_url : '{{haproxy_mirror}}/{{haproxy_major_ver}}/src/{{haproxy_tgz}}'
 
+haproxy_src_dir: '{{haproxy_parent_src_dir}}/{{haproxy_name}}'
+haproxy_src_link_dir: '{{haproxy_parent_src_dir}}/haproxy'
+
 haproxy_buildargs: >-
   TARGET=custom
   CPU=native
