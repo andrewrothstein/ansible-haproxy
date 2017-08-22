@@ -18,29 +18,19 @@
     dest: '{{haproxy_parent_src_dir}}'
     creates: '{{haproxy_src_dir}}'
     
-- name: linking /opt/haproxy...
-  become: yes
-  become_user: root 
-  file:
-    src: '{{haproxy_src_dir}}'
-    dest: '{{haproxy_src_link_dir}}'
-    state: link
-
 - name: building...
   become: yes
   become_user: root
-  command: >-
-    make -j4 {{haproxy_buildargs}}
+  command: make -j4 {{haproxy_buildargs}}
   args:
-    chdir: '{{haproxy_src_link_dir}}'
-    creates: '{{haproxy_src_link_dir}}/haproxy'
+    chdir: '{{haproxy_src_dir}}'
+    creates: '{{haproxy_src_dir}}/haproxy'
 
 - name: installing...
   become: yes
   become_user: root
-  command: >-
-    make -j4 install {{haproxy_installargs}}
+  command: make -j4 install {{haproxy_installargs}}
   args:
-    chdir: '{{haproxy_src_link_dir}}'
+    chdir: '{{haproxy_src_dir}}'
     creates: /usr/local/sbin/haproxy
 

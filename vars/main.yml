@@ -6,7 +6,6 @@ haproxy_tgz : '{{haproxy_name}}.tar.gz'
 haproxy_url : '{{haproxy_mirror}}/{{haproxy_major_ver}}/src/{{haproxy_tgz}}'
 
 haproxy_src_dir: '{{haproxy_parent_src_dir}}/{{haproxy_name}}'
-haproxy_src_link_dir: '{{haproxy_parent_src_dir}}/haproxy'
 
 haproxy_buildargs: >-
   TARGET=custom
@@ -21,7 +20,7 @@ haproxy_buildargs: >-
   USE_LUA=1
   LUA_LIB=/usr/local/lib/
   LUA_INC=/usr/local/include/
-  LDFLAGS={{haproxy_build_ldflags}}
+  LDFLAGS="{{haproxy_build_ldflags}}"
 
 haproxy_installargs: >-
-  LDFLAGS={{haproxy_install_ldflags}}
+  LDFLAGS="{{haproxy_install_ldflags}}"
