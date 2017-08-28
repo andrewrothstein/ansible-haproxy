@@ -1,7 +1,7 @@
 ---
 # defaults file for haproxy
 haproxy_major_ver : '1.7'
-haproxy_minor_ver : 8
+haproxy_minor_ver : 9
 haproxy_mirror : https://www.haproxy.org/download
 haproxy_download_timeout_seconds: 600
 
