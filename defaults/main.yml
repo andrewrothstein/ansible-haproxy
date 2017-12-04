@@ -5,6 +5,9 @@ haproxy_minor_ver : 0
 haproxy_mirror : https://www.haproxy.org/download
 haproxy_download_timeout_seconds: 600
 
+haproxy_checksums:
+  '1.8.0': sha256:07b6e041b477c01543fd365cb7e7fc1b7219e0f86d810828eedd593ae98b6ca0
+
 haproxy_build_ldflags: -lcrypt -lssl -lcrypto -L/usr/local/lib/ -llua -lm -L/usr/lib -lpcreposix -lpcre
 haproxy_install_ldflags: -lcrypt -lssl -lcrypto -L/usr/local/lib/ -llua -lm -L/usr/lib -lpcreposix -lpcre -ldl
 

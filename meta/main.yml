@@ -24,7 +24,10 @@ galaxy_info:
     - loadbalancer
 
 dependencies:
-  - role: andrewrothstein.unarchive-deps
+  - src: andrewrothstein.unarchive-deps
     version: v1.0.9
-  - role: andrewrothstein.lua
+  - src: andrewrothstein.lua
     version: v2.0.0
+  - src: andrewrothstein.openssl
+    version: v1.0.0
+    openssl_include_dev_pkgs: True

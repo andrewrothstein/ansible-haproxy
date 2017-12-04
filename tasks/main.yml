@@ -7,6 +7,7 @@
     url: '{{haproxy_url}}'
     dest: /tmp/{{haproxy_tgz}}
     timeout: '{{haproxy_download_timeout_seconds}}'
+    checksum: '{{haproxy_checksum}}'
     mode: 0644
 
 - name: unarchive...
