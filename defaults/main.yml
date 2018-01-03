@@ -1,14 +1,15 @@
 ---
 # defaults file for haproxy
 haproxy_major_ver : '1.8'
-haproxy_minor_ver : 1
+haproxy_minor_ver : 2
 haproxy_mirror : https://www.haproxy.org/download
 haproxy_download_timeout_seconds: 600
 
-# https://www.haproxy.org/download/1.8/src/haproxy-1.8.1.tar.gz
+# https://www.haproxy.org/download/1.8/src/haproxy-1.8.2.tar.gz
 haproxy_checksums:
   '1.8.0': sha256:07b6e041b477c01543fd365cb7e7fc1b7219e0f86d810828eedd593ae98b6ca0
   '1.8.1': sha256:02ded32524353da2f3e29e952e656cc2f6b5f0189400831401f9de70a6560b30
+  '1.8.2': sha256:3d65729ab27c5d2a825b450997c172eb3a59bd2968ae03115333e19ed055bfd7
 
 haproxy_build_ldflags: -lcrypt -lssl -lcrypto -L/usr/local/lib/ -llua -lm -L/usr/lib -lpcreposix -lpcre
 haproxy_install_ldflags: -lcrypt -lssl -lcrypto -L/usr/local/lib/ -llua -lm -L/usr/lib -lpcreposix -lpcre -ldl
