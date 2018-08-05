@@ -1,11 +1,11 @@
 ---
 # vars file for haproxy
-haproxy_ver : '{{haproxy_major_ver}}.{{haproxy_minor_ver}}'
-haproxy_name : 'haproxy-{{haproxy_ver}}'
-haproxy_tgz : '{{haproxy_name}}.tar.gz'
+haproxy_ver: '{{haproxy_major_ver}}.{{haproxy_minor_ver}}'
+haproxy_name  'haproxy-{{haproxy_ver}}'
+haproxy_tgz: '{{haproxy_name}}.tar.gz'
 haproxy_checksum: '{{haproxy_checksums[haproxy_ver]}}'
 
-haproxy_url : '{{haproxy_mirror}}/{{haproxy_major_ver}}/src/{{haproxy_tgz}}'
+haproxy_url: '{{haproxy_mirror}}/{{haproxy_major_ver}}/src/{{haproxy_tgz}}'
 
 haproxy_src_dir: '{{haproxy_parent_src_dir}}/{{haproxy_name}}'
 

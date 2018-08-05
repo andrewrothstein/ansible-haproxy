@@ -18,7 +18,7 @@
     src: /tmp/{{haproxy_tgz}}
     dest: '{{haproxy_parent_src_dir}}'
     creates: '{{haproxy_src_dir}}'
-    
+
 - name: building...
   become: yes
   become_user: root
@@ -34,4 +34,3 @@
   args:
     chdir: '{{haproxy_src_dir}}'
     creates: /usr/local/sbin/haproxy
-
